@@ -123,8 +123,13 @@ module.exports = {
 										.then((res) => {
 											return res.data;
 										});
+                                                                        const devDetails = {
+                                                                                accountId: deviceAuthDetails.accountId,
+			deviceId: deviceAuthDetails.deviceId,
+			secret: deviceAuthDetails.secret,
+		};
 
-									await fs.writeFile(deviceAuthPath, JSON.stringify(deviceAuthDetails));
+									await fs.writeFile(deviceAuthPath, JSON.stringify(devDetails));
 
 									const accountId = token.account_id;
 
