@@ -1,2 +1,95 @@
-# Carbide
-Discord Bot that interacts with your Fortnite Account
+<div align="center">
+
+# Carbide &middot; Discord Bot
+
+### ![version](https://img.shields.io/badge/Version-3.2.0-blue.svg?style=for-the-badge) [![Discord](https://img.shields.io/discord/739856631038345266.svg?style=for-the-badge&color=blue&logo=discord&logoColor=white)](https://discord.gg/5pKvUpA)
+
+<a target="_blank" href="https://discord.gg/5pKvUpA" title="Join our Discord!">
+<img draggable="false" src="https://discordapp.com/api/guilds/739856631038345266/widget.png?style=banner2" height="76px" draggable="false" alt="Join my Discord!">
+</a>
+</div>
+
+# About
+
+**Carbide** is a **Discord Bot** made by [Tornado](https://twitter.com/im2rnadoo) that let's you login to your Fortnite account and access 45+ commands!
+
+# Features
+
+- Buy from the item shop
+- Gift from the item shop
+- Show your Account Name
+- Show your Account ID
+- Show your Vbucks
+- Claim your Daily STW Reward
+- Show your BR Level
+- Show your Account Level
+- Show your Real Name
+- Show your Account Email
+- Show your Linked External Accounts
+- Remove your Linked External Accounts
+- Show your Locker
+- Change Gift Message
+- Buy Battle Pass
+- Buy Battle Bundle
+- Change Vbucks Platform
+- Show your Display Name changes
+- Show when you can change your Display Name next
+- Show if your account is verified
+- Show your Fishing Book
+- Check Validity of Epic Games Code
+- Show your Favorite Islands
+- Add a Favorite Island
+- Get friends list
+- Add a friend
+- Remove a friend
+- Change your Homebase Name
+- Show your Party Hub Avatar
+- Show your Devices and their IP
+- Generate an access token
+- Show your Gift History
+- Equip a skin
+- Favorite an item
+- Unfavorite an item
+_ Mark an item as seen
+- Show if you have 2FA enabled
+- Show your Account Creation Date
+- Show the current shop
+- And tons of more features that get added frequently!
+
+## Installation 
+
+1. Install the latest version of **[Node.JS](https://nodejs.org/en/download/current/)**.
+2. Download the source code.
+3. Extract the zip.
+4. Open `install.bat` and wait for it to install. (Only required on the first run!)
+5. [Create](https://discord.com/developers/applications) a Discord Bot account.
+6. Navigate to the bot window, copy the token. Remember to **NOT** share the token with anybody! This will result in your bot account being compromised.
+7. Make a file called `.env` and put in this: ```DISCORD_TOKEN=token_you_copied
+PREFIX=+```
+8. Go to [this](https://discordapi.com/permissions.html) website.
+9. Insert your bot's Client ID.
+
+<td align="left"><a href="https://cdn.discordapp.com/attachments/745424999996719166/745676588414402621/botIcon.png"><img src="https://cdn.discordapp.com/attachments/748522409371631688/749382248280883310/Screenshot_2020-08-29_at_22.37.23.png" width="1000px;" alt=""/><br /><sub><b></b></sub></a><br /><a title=""></a></td>
+
+10. Click on the link, invite the bot to one of your servers.
+11. Open `run.bat`, it should say `Bot is online :)` (DON'T CLOSE THIS WHILE USING THE BOT!)
+12. Use the bot!
+
+
+## Support
+For any support, join [discord.gg/5pKvUpA](https://discord.gg/5pKvUpA).
+
+# Credits
+## Contributers
+ * [Mix](https://twitter.com/tonxim) - Endpoints
+ * [tb24](https://twitter.com/amrsatrio) - Endpoints
+ * [Tector](https://mobile.twitter.com/TectorTruck) - Auth Example
+## Libraries/APIs
+ * [Axios](https://www.npmjs.com/package/axios) - Requests
+ * [FortniteAPI.io](https://fortniteapi.io) - Shop and Items
+ * [Canvas](https://www.npmjs.com/package/canvas) - Images
+ * [MongoDB](https://www.mongodb.com) - Database
+
+### Made by im2rnado
+
+#### If you want this taken down, email me with an official EpicGames Email at im2rnado@gmail.com
