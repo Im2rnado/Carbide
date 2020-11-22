@@ -52,7 +52,7 @@
 <td align="left"><a href="https://cdn.discordapp.com/attachments/745424999996719166/745676588414402621/botIcon.png"><img src="https://cdn.discordapp.com/attachments/748522409371631688/749382248280883310/Screenshot_2020-08-29_at_22.37.23.png" width="1000px;" alt=""/><br /><sub><b></b></sub></a><br /><a title=""></a></td>
 
 10. Click on the link, invite the bot to one of your servers.
-11. Open `run.bat`, it should say `Bot is online :)` (DON'T CLOSE THIS WHILE USING THE BOT!)
+11. Open `run.bat`, it should say `Online!` (DON'T CLOSE THIS WHILE USING THE BOT!)
 12. Use the bot!
 
 
