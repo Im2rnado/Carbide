@@ -37,7 +37,7 @@ module.exports = {
 				});
 		}
 
-		const h = await message.channel.send('Buying Item <a:loading:754479771089371318>');
+		const h = await message.channel.send('Buying Item ...');
 
 		try {
 			if (fs.existsSync(path)) {
@@ -106,7 +106,7 @@ module.exports = {
 								if (reaction.emoji.name === '✅') {
 									await i.delete();
 
-									const f = await message.channel.send(`Buying ${item.name} <a:loading:754479771089371318>`);
+									const f = await message.channel.send(`Buying ${item.name} ...`);
 
 									await axios.post(`${PUBLIC_BASE_URL}/game/v2/profile/${accountId}/client/PurchaseCatalogEntry?profileId=common_core`, {
 										'offerId': item.offer,
@@ -130,18 +130,10 @@ module.exports = {
 										const errormessage1 = new MessageEmbed()
 											.setColor('#ffff00')
 											.setTitle('⚠️ **Purchase Failed!**')
-											.setDescription(`It looks like you can't purchase this item! If you think its a problem on our side, [Join our Support Server](${invite}) and report it there.`)
+											.setDescription(`It looks like you can't purchase this item! If you think its a problem on our side!`)
 											.addField('Error Message: ', `\`\`\`js\n${err.response.data.errorMessage}\`\`\``);
 
 										f.edit('', errormessage1);
-
-										const errormessage2 = new MessageEmbed()
-											.setColor('#ffff00')
-											.setTitle(`**${message.author.tag}** \`(${message.author.id})\` encountered an error!`)
-											.setDescription(`Command Used: **${message.content}**`)
-											.addField('Error Message: ', `\`\`\`js\n${err.response.data.errorMessage}\`\`\``);
-
-										client.channels.cache.get('743242297260507166').send(errormessage2);
 									});
 								}
 								if (reaction.emoji.name === '❌') {
@@ -186,7 +178,7 @@ module.exports = {
 								if (reaction.emoji.name === '✅') {
 									await i.delete();
 
-									const f = await message.channel.send(`Buying ${item2.name} <a:loading:754479771089371318>`);
+									const f = await message.channel.send(`Buying ${item2.name} ...`);
 
 									await axios.post(`${PUBLIC_BASE_URL}/game/v2/profile/${accountId}/client/PurchaseCatalogEntry?profileId=common_core`, {
 										'offerId': item2.offer,
@@ -210,18 +202,10 @@ module.exports = {
 										const errormessage1 = new MessageEmbed()
 											.setColor('#ffff00')
 											.setTitle('⚠️ **Purchase Failed!**')
-											.setDescription(`It looks like you can't purchase this item! If you think its a problem on our side, [Join our Support Server](${invite}) and report it there.`)
+											.setDescription(`It looks like you can't purchase this item! If you think its a problem on our side!`)
 											.addField('Error Message: ', `\`\`\`js\n${err.response.data.errorMessage}\`\`\``);
 
 										f.edit('', errormessage1);
-
-										const errormessage2 = new MessageEmbed()
-											.setColor('#ffff00')
-											.setTitle(`**${message.author.tag}** \`(${message.author.id})\` encountered an error!`)
-											.setDescription(`Command Used: **${message.content}**`)
-											.addField('Error Message: ', `\`\`\`js\n${err.response.data.errorMessage}\`\`\``);
-
-										client.channels.cache.get('743242297260507166').send(errormessage2);
 									});
 								}
 								if (reaction.emoji.name === '❌') {
@@ -266,7 +250,7 @@ module.exports = {
 								if (reaction.emoji.name === '✅') {
 									await i.delete();
 
-									const f = await message.channel.send(`Buying ${item3.name} <a:loading:754479771089371318>`);
+									const f = await message.channel.send(`Buying ${item3.name} ...`);
 
 									await axios.post(`${PUBLIC_BASE_URL}/game/v2/profile/${accountId}/client/PurchaseCatalogEntry?profileId=common_core`, {
 										'offerId': item3.offer,
@@ -290,18 +274,10 @@ module.exports = {
 										const errormessage1 = new MessageEmbed()
 											.setColor('#ffff00')
 											.setTitle('⚠️ **Purchase Failed!**')
-											.setDescription(`It looks like you can't purchase this item! If you think its a problem on our side, [Join our Support Server](${invite}) and report it there.`)
+											.setDescription(`It looks like you can't purchase this item! If you think its a problem on our side.`)
 											.addField('Error Message: ', `\`\`\`js\n${err.response.data.errorMessage}\`\`\``);
 
 										f.edit('', errormessage1);
-
-										const errormessage2 = new MessageEmbed()
-											.setColor('#ffff00')
-											.setTitle(`**${message.author.tag}** \`(${message.author.id})\` encountered an error!`)
-											.setDescription(`Command Used: **${message.content}**`)
-											.addField('Error Message: ', `\`\`\`js\n${err.response.data.errorMessage}\`\`\``);
-
-										client.channels.cache.get('743242297260507166').send(errormessage2);
 									});
 								}
 								if (reaction.emoji.name === '❌') {
