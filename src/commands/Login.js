@@ -114,7 +114,6 @@ module.exports = {
 											return res.data;
 										});
 
-									async GenerateDeviceAuth() {
                                                                                  const deviceAuthDetails = await axios
 										.post(
 											`${Endpoints.DEVICE_AUTH}/${iosToken.account_id}/deviceAuth`,
@@ -124,15 +123,13 @@ module.exports = {
 										.then((res) => {
 											return res.data;
 										});
-                                                                        return {
+                                                                        const devvvv = {
 			accountId: deviceAuthDetails.accountId,
 			deviceId: deviceAuthDetails.deviceId,
 			secret: deviceAuthDetails.secret,
 		};
-	}
 
-									deviceAuthDetails = await this.GenerateDeviceAuth();
-			                                                await fs.writeFile(deviceAuthPath, JSON.stringify(deviceAuthDetails));
+			                                                await fs.writeFile(deviceAuthPath, JSON.stringify(devvvv));
 
 									const accountId = token.account_id;
 
