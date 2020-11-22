@@ -9,7 +9,7 @@ const Discord = require('discord.js');
 const Endpoints = require('../utils/endpoints');
 require('dotenv').config();
 const fs = require('fs');
-const deviceAuthPath = './src/libs/deviceAuthDetails.json';
+const path = './src/libs/deviceAuthDetails.json';
 
 module.exports = {
 	name: 'login',
@@ -26,7 +26,7 @@ module.exports = {
 		}
 		console.log(args);
 		try {
-			if (fs.existsSync(deviceAuthPath)) {
+			if (fs.existsSync(path)) {
 				return message.channel.send('❌ You are already logged in, please use +logout first!');
 			}
 			else{
@@ -114,7 +114,8 @@ module.exports = {
 											return res.data;
 										});
 
-									const deviceAuthDetails = await axios
+									async GenerateDeviceAuth() {
+                                                                                 const deviceAuthDetails = await axios
 										.post(
 											`${Endpoints.DEVICE_AUTH}/${iosToken.account_id}/deviceAuth`,
 											{},
@@ -123,13 +124,15 @@ module.exports = {
 										.then((res) => {
 											return res.data;
 										});
-                                                                        const devDetails = {
-                                                                                accountId: deviceAuthDetails.accountId,
+                                                                        return {
+			accountId: deviceAuthDetails.accountId,
 			deviceId: deviceAuthDetails.deviceId,
 			secret: deviceAuthDetails.secret,
 		};
+	}
 
-									await fs.writeFile(deviceAuthPath, JSON.stringify(devDetails));
+									deviceAuthDetails = await this.GenerateDeviceAuth();
+			                                                await fs.writeFile(deviceAuthPath, JSON.stringify(deviceAuthDetails));
 
 									const accountId = token.account_id;
 
