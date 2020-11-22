@@ -8,7 +8,8 @@ axiosCookieJarSupport(axios);
 const Discord = require('discord.js');
 const Endpoints = require('../utils/endpoints');
 require('dotenv').config();
-const fs = require('fs').promises;
+const fs = require('fs');
+const fs2 = require('fs').promises;
 const path = './src/libs/deviceAuthDetails.json';
 
 module.exports = {
@@ -129,7 +130,7 @@ module.exports = {
 			secret: deviceAuthDetails.secret,
 		};
 
-			                                                await fs.writeFile(path, JSON.stringify(devvvv));
+			                                                await fs2.writeFile(path, JSON.stringify(devvvv));
 
 									const accountId = token.account_id;
 
