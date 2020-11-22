@@ -32,7 +32,7 @@ module.exports = {
 			else{
 				console.log(' ');
 				if (!args.length) {
-					const k = await message.channel.send('Generating Device Code <a:loading:754479771089371318> ');
+					const k = await message.channel.send('Generating Device Code ...');
 					console.log('[AUTH]', 'Requesting Access Token');
 					const access_token = await axios.post('https://account-public-service-prod03.ol.epicgames.com/account/api/oauth/token', stringify({ token_type: 'eg1', grant_type: 'client_credentials' }), { headers: {
 						'Content-Type': 'application/x-www-form-urlencoded',
@@ -77,7 +77,7 @@ module.exports = {
 							if (reaction.emoji.name === '✅') {
 								await i.delete();
 
-								const h = await message.channel.send('Signing in to Epic Services <a:loading:754479771089371318>');
+								const h = await message.channel.send('Signing in to Epic Services ...');
 								try {
 									console.log('[AUTH]', 'Requesting Login Token');
 									const token = await axios.post('https://account-public-service-prod03.ol.epicgames.com/account/api/oauth/token', stringify({ grant_type: 'device_code', device_code: tempAccessToken.device_code }), { headers: {
@@ -137,19 +137,11 @@ module.exports = {
 											.setColor('#ffff00')
 											.setTitle('⚠️ **Uh Oh! That was unexpected!**')
 											// eslint-disable-next-line no-undef
-											.setDescription(`There seems to be an error and we're working on a fix! You can [Join our Support Server](${invite}) and report it there.`)
+											.setDescription(`There seems to be an error and we're working on a fix!`)
 											.addField('Error Message: ', `\`\`\`js\n${err.response.data.errorMessage}\`\`\``)
 											.setFooter(err.response.data.errorCode);
 
 										h.edit('', errormessage1);
-										const errormessage2 = new Discord.MessageEmbed()
-											.setColor('#ffff00')
-											.setTitle(`**${message.author.tag}** \`(${message.author.id})\` encountered an error!`)
-											.setDescription(`Command Used: **${message.content}**`)
-											.addField('Error Message: ', `\`\`\`js\n${err.response.data.errorMessage}\`\`\``)
-											.setFooter(err.response.data.errorCode);
-
-										client.channels.cache.get('743242297260507166').send(errormessage2);
 									});
 
 									client.sessions.set(`kairos${tagName}`, response34.data[0].value);
@@ -217,18 +209,10 @@ module.exports = {
 				.setColor('#ffff00')
 				.setTitle('⚠️ **Uh Oh! That was unexpected!**')
 			// eslint-disable-next-line no-undef
-				.setDescription(`There seems to be an error and we're working on a fix! You can [Join our Support Server](${invite}) and report it there.`)
+				.setDescription(`There seems to be an error and we're working on a fix!`)
 				.addField('Error Message: ', `\`\`\`js\n${err}\`\`\``);
 
 			message.channel.send(errormessage1);
-
-			const errormessage2 = new Discord.MessageEmbed()
-				.setColor('#ffff00')
-				.setTitle(`**${message.author.tag}** \`(${message.author.id})\` encountered an error!`)
-				.setDescription(`Command Used: **${message.content}**`)
-				.addField('Error Message: ', `\`\`\`js\n${err}\`\`\``);
-
-			client.channels.cache.get('743242297260507166').send(errormessage2);
 		}
 
 	},
