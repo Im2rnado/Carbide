@@ -35,7 +35,7 @@
 - Show the current shop
 - And tons of more features that get added frequently!
 
-## Installation 
+# Installation 
 
 1. Install the latest version of **[Node.JS](https://nodejs.org/en/download/current/)**.
 2. Download the source code.
@@ -55,7 +55,7 @@ PREFIX=+```
 12. Use the bot!
 
 
-## Support
+# Support
 For any support, join [discord.gg/5pKvUpA](https://discord.gg/5pKvUpA).
 
 # Credits
