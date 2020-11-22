@@ -11,8 +11,9 @@ module.exports = {
 	description: 'Returns Vbucks Balance (Premium Only)',
 	aliases: ['bal', 'vbucks'],
 	async execute(message, args, client) {
-		// DMs only
+		const tagName = message.author.id;
 
+		// DMs only
 		if (message.guild) {
 			return message.channel.send('This command only works in DMs.').then(m => m.delete({ timeout: 3900 }))
 				.catch(err => {
