@@ -43,8 +43,7 @@
 4. Open `install.bat` and wait for it to install. (Only required on the first run!)
 5. [Create](https://discord.com/developers/applications) a Discord Bot account.
 6. Navigate to the bot window, copy the token. Remember to **NOT** share the token with anybody! This will result in your bot account being compromised.
-7. Make a file called `.env` and put in this: ```DISCORD_TOKEN=token_you_copied
-PREFIX=+```
+7. Make a file called `.env` and put in this: ```DISCORD_TOKEN=token_you_copied\nPREFIX=+```
 8. Go to [this](https://discordapi.com/permissions.html) website.
 9. Insert your bot's Client ID.
 
