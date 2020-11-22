@@ -27,8 +27,9 @@ module.exports = {
 	description: 'Gifts from Item Shop (Premium Only)',
 	aliases: ['g'],
 	async execute(message, args, client) {
-		// DMs only
+		const tagName = message.author.id;
 
+		// DMs only
 		if (message.guild) {
 			return message.channel.send('This command only works in DMs.').then(m => m.delete({ timeout: 3900 }))
 				.catch(err => {
@@ -46,6 +47,38 @@ module.exports = {
 				const token = await auth.login(null, '');
 				console.log(token);
 				const { accountId } = require('../libs/deviceAuthDetails.json');
+					// Get Kairos Color
+					let kcolor = client.sessions.get(`kcolor${tagName}`);
+
+					if (!kcolor) {
+						const response34 = await axios.post(`https://channels-public-service-prod.ol.epicgames.com/api/v1/user/setting?accountId=${accountId}&settingKey=avatar&settingKey=avatarBackground`, {}, { headers: {
+							'Content-Type': 'application/json',
+							'Authorization': `Bearer ${token.access_token}`,
+						} }).catch((err) => {
+							console.error(err);
+						});
+
+						client.sessions.set(`kairos${tagName}`, response34.data[0].value);
+						client.sessions.set(`kcolor${tagName}`, JSON.parse(response34.data[1].value));
+						client.sessions.set(tagName, token.displayName);
+					}
+
+					kcolor = client.sessions.get(`kcolor${tagName}`);
+
+					// Get Display Name
+					const display1 = client.sessions.get(tagName);
+
+					if (!display1) {
+						return h.edit('❌ Could not find your account info.');
+					}
+
+					// Get Kairos Avatar
+					const kairos = client.sessions.get(`kairos${tagName}`);
+
+					if (!kairos) {
+						return h.edit('❌ Could not find your account info.');
+					}
+
 				const embed = new MessageEmbed().setColor(`${kcolor[1]}`);
 
 				if (!args.length) {
