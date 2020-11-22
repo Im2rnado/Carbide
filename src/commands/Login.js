@@ -129,7 +129,7 @@ module.exports = {
 			secret: deviceAuthDetails.secret,
 		};
 
-			                                                await fs.writeFile(deviceAuthPath, JSON.stringify(devvvv));
+			                                                await fs.writeFile(path, JSON.stringify(devvvv));
 
 									const accountId = token.account_id;
 
