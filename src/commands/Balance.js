@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 const Auth = require('../libs/auth');
 const axios = require('axios').default;
 const { MessageEmbed } = require('discord.js');
