@@ -16,22 +16,18 @@
 - Show your Vbucks
 - Claim your Daily STW Reward
 - Show your Locker
-- Buy Battle Pass
-- Buy Battle Bundle
 - Change Vbucks Platform
 - Get friends list
 - Add a friend
 - Remove a friend
 - Change your Homebase Name
 - Show your Party Hub Avatar
-- Favorite an item
-- Unfavorite an item
 - Show the current shop
 - And tons of more features that get added frequently!
 
 # Installation 
 
-1. Install the latest version of **[Node.JS](https://nodejs.org/en/download/current/)**.
+1. Install the latest version of **[Node.JS](https://nodejs.org/en/download/current/)**
 2. Download the source code.
 3. Extract the zip.
 4. Open `install.bat` and wait for it to install. (Only required on the first run!)
