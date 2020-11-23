@@ -9,7 +9,7 @@ module.exports = {
 	name: 'avatar',
 	description: 'Returns Party Hub Avatar (Premium Only)',
 	aliases: ['kairos', 'avi'],
-	async execute(message, args, client) {
+	async execute(message, args) {
 		const tagName = message.author.id;
 
 			// DMs only
@@ -20,7 +20,7 @@ module.exports = {
 					});
 			}
 
-			const h = await message.channel.send('Getting Avatar <a:loading:754479771089371318>');
+			const h = await message.channel.send('Getting Avatar ...');
 
 			try {
 				if (fs.existsSync(path)) {
