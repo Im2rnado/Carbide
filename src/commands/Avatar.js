@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 const Auth = require('../libs/auth');
 const axios = require('axios').default;
 const { MessageEmbed } = require('discord.js');
@@ -92,7 +91,7 @@ module.exports = {
 								.setColor('#ffff00')
 								.setTitle('⚠️ **Uh Oh! That was unexpected!**')
 								// eslint-disable-next-line no-undef
-								.setDescription(`There seems to be an error and we're working on a fix! You can [Join our Support Server](${invite}) and report it there.`)
+								.setDescription(`There seems to be an error and we're working on a fix!`)
 								.addField('Error Message: ', `\`\`\`js\n${err.response.data.errorMessage}\`\`\``)
 								.setFooter(err.response.data.errorCode);
 
@@ -111,7 +110,7 @@ module.exports = {
 								.setColor('#ffff00')
 								.setTitle('⚠️ **Uh Oh! That was unexpected!**')
 								// eslint-disable-next-line no-undef
-								.setDescription(`There seems to be an error and we're working on a fix! You can [Join our Support Server](${invite}) and report it there.`)
+								.setDescription(`There seems to be an error and we're working on a fix!`)
 								.addField('Error Message: ', `\`\`\`js\n${err}\`\`\``)
 								.setFooter(err);
 
@@ -138,7 +137,7 @@ module.exports = {
 				const errormessage1 = new MessageEmbed()
 					.setColor('#ffff00')
 					.setTitle('⚠️ **Uh Oh! That was unexpected!**')
-					.setDescription(`There seems to be an error and we're working on a fix! You can [Join our Support Server](${invite}) and report it there.`)
+					.setDescription(`There seems to be an error and we're working on a fix!`)
 					.addField('Error Message: ', `\`\`\`js\n${err}\`\`\``);
 
 				h.edit('', errormessage1);
