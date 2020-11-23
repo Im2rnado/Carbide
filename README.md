@@ -58,7 +58,6 @@ For any support, join [discord.gg/5pKvUpA](https://discord.gg/5pKvUpA).
  * [Axios](https://www.npmjs.com/package/axios) - Requests
  * [FortniteAPI.io](https://fortniteapi.io) - Shop and Items
  * [Canvas](https://www.npmjs.com/package/canvas) - Images
- * [MongoDB](https://www.mongodb.com) - Database
 
 ### Made by im2rnado
 
