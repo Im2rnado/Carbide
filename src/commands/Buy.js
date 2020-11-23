@@ -162,7 +162,7 @@ module.exports = {
 										const errormessage1 = new MessageEmbed()
 											.setColor('#ffff00')
 											.setTitle('⚠️ **Purchase Failed!**')
-											.setDescription(`It looks like you can't purchase this item! If you think its a problem on our side!`)
+											.setDescription(`It looks like you can't purchase this item! It may be a problem on our side!`)
 											.addField('Error Message: ', `\`\`\`js\n${err.response.data.errorMessage}\`\`\``);
 
 										f.edit('', errormessage1);
@@ -234,7 +234,7 @@ module.exports = {
 										const errormessage1 = new MessageEmbed()
 											.setColor('#ffff00')
 											.setTitle('⚠️ **Purchase Failed!**')
-											.setDescription(`It looks like you can't purchase this item! If you think its a problem on our side!`)
+											.setDescription(`It looks like you can't purchase this item! It may be a problem on our side!`)
 											.addField('Error Message: ', `\`\`\`js\n${err.response.data.errorMessage}\`\`\``);
 
 										f.edit('', errormessage1);
@@ -306,7 +306,7 @@ module.exports = {
 										const errormessage1 = new MessageEmbed()
 											.setColor('#ffff00')
 											.setTitle('⚠️ **Purchase Failed!**')
-											.setDescription(`It looks like you can't purchase this item! If you think its a problem on our side.`)
+											.setDescription(`It looks like you can't purchase this item! It may be a problem on our side.`)
 											.addField('Error Message: ', `\`\`\`js\n${err.response.data.errorMessage}\`\`\``);
 
 										f.edit('', errormessage1);
