@@ -53,7 +53,6 @@ client.on('message', async message => {
 		const errormessage1 = new Discord.MessageEmbed()
 			.setColor('#ffff00')
 			.setTitle('⚠️ **Uh Oh! That was unexpected!**')
-			// eslint-disable-next-line no-undef
 			.setDescription(`There seems to be an error and we're working on a fix!`)
 			.addField('Error Message: ', `\`\`\`js\n${error}\`\`\``);
 
