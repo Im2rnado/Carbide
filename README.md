@@ -62,4 +62,4 @@ For any support, join [discord.gg/5pKvUpA](https://discord.gg/5pKvUpA).
 
 ### Made by im2rnado
 
-#### If you want this taken down, email me with an official EpicGames Email at im2rnado@gmail.com
+#### If you want this taken down, email me with an official Epic Games email at im2rnado@gmail.com
