@@ -9,34 +9,34 @@ module.exports = {
 	name: 'homebase',
 	description: 'Changes your STW Homebase Name (Premium Only)',
 	aliases: ['homebasename'],
-	async execute(message, args) {
+	async execute(message, args, client) {
 		const tagName = message.author.id;
 
-			// DMs only
-			if (message.guild) {
-				return message.channel.send('This command only works in DMs.').then(m => m.delete({ timeout: 3900 }))
-					.catch(err => {
-						console.log(err);
-					});
-			}
+		// DMs only
+		if (message.guild) {
+			return message.channel.send('This command only works in DMs.').then(m => m.delete({ timeout: 3900 }))
+				.catch(err => {
+					console.log(err);
+				});
+		}
 
-			const h = await message.channel.send('Changing homebase name ...');
+		const h = await message.channel.send('Changing homebase name ...');
 
-			try {
-				if (fs.existsSync(path)) {
+		try {
+			if (fs.existsSync(path)) {
 
-					if (!args[0] || args[0] === '') {
-						const embed = new Discord.MessageEmbed();
-						embed.setColor('BLUE');
-						embed.setTitle('Use +homebase <new name> to change your Homebase name');
-						return h.edit('', { embed: embed });
-					}
-					else {
+				if (!args[0] || args[0] === '') {
+					const embed = new Discord.MessageEmbed();
+					embed.setColor('BLUE');
+					embed.setTitle('Use +homebase <new name> to change your Homebase name');
+					return h.edit('', { embed: embed });
+				}
+				else {
 
-						const auth = new Auth();
+					const auth = new Auth();
 
-						const token = await auth.login(null, '');
-						const { accountId } = require('../libs/deviceAuthDetails.json');
+					const token = await auth.login(null, '');
+					const { accountId } = require('../libs/deviceAuthDetails.json');
 
 					// Get Kairos Color
 					let kcolor = client.sessions.get(`kcolor${tagName}`);
@@ -70,32 +70,32 @@ module.exports = {
 						return h.edit('❌ Could not find your account info.');
 					}
 
-						const embed = new Discord.MessageEmbed().setColor(`${kcolor[1]}`);
+					const embed = new Discord.MessageEmbed().setColor(`${kcolor[1]}`);
 
-						await axios.post(`${PUBLIC_BASE_URL}/game/v2/profile/${accountId}/client/SetHomebaseName?profileId=common_public&rvn=-1`, {
-							'homebaseName': `${args.join(' ')}`,
-						}, { headers: {
-							'Content-Type': 'application/json',
-							'Authorization': `Bearer ${token}`,
-						} }).then((response) => {
-							console.log(response);
+					await axios.post(`${PUBLIC_BASE_URL}/game/v2/profile/${accountId}/client/SetHomebaseName?profileId=common_public&rvn=-1`, {
+						'homebaseName': `${args.join(' ')}`,
+					}, { headers: {
+						'Content-Type': 'application/json',
+						'Authorization': `Bearer ${token.access_token}`,
+					} }).then((response) => {
+						console.log(response);
 
-							embed.setTitle(`✅ Successfully set homebase name to **${args.join(' ')}**`);
-							h.edit('', { embed: embed });
-						}).catch((err) => {
-							console.error(err);
-							h.edit('❌ You do not own STW!');
-						});
-					}
-				}
-				else{
-					h.edit('❌ You are not logged in.');
+						embed.setTitle(`✅ Successfully set homebase name to **${args.join(' ')}**`);
+						h.edit('', { embed: embed });
+					}).catch((err) => {
+						console.error(err);
+						h.edit('❌ You do not own STW!');
+					});
 				}
 			}
-			catch(err) {
-				console.error(err);
-				h.edit('❌ You do not own STW!');
+			else{
+				h.edit('❌ You are not logged in.');
 			}
+		}
+		catch(err) {
+			console.error(err);
+			h.edit('❌ You do not own STW!');
+		}
 
 	},
 };
