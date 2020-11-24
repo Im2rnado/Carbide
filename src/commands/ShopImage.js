@@ -4,7 +4,7 @@ const moment = require('moment');
 const date = moment().utcOffset('+0200').format('dddd, MMMM Do YYYY');
 const fs = require('fs');
 
-const { genratateShop } = require('../functions/shopv3');
+const { genratateShop } = require('../functions/shop');
 
 module.exports = {
 	name: 'shopimage',
