@@ -9,7 +9,7 @@ module.exports = {
 	aliases: ['store', 'st'],
 	async execute(message) {
 
-		const h = await message.channel.send('Getting Battle Royale Shop <a:loading:754479771089371318>');
+		const h = await message.channel.send('Getting Battle Royale Shop ...');
 
 		const embed1 = new Discord.MessageEmbed()
 			.setColor('BLUE')
@@ -37,7 +37,7 @@ module.exports = {
 			const fembed = [];
 
 			featured.forEach(el => {
-				fembed.push(`${el.name} - ${el.price} <:vbucks:755030644056260651>`);
+				fembed.push(`${el.name} - ${el.price} V-Bucks`);
 			});
 
 			embed1.addField('**Featured**', fembed);
@@ -46,7 +46,7 @@ module.exports = {
 			const dembed = [];
 
 			daily.forEach(el => {
-				dembed.push(`${el.name} - ${el.price} <:vbucks:755030644056260651>`);
+				dembed.push(`${el.name} - ${el.price} V-Bucks`);
 			});
 
 			embed1.addField('**Daily**', dembed);
@@ -57,7 +57,7 @@ module.exports = {
 				const ofembed = [];
 
 				offers.forEach(el => {
-					ofembed.push(`${el.name} - ${el.price} <:vbucks:755030644056260651>`);
+					ofembed.push(`${el.name} - ${el.price} V-Bucks`);
 				});
 
 				embed1.addField('**Limited Time Offers**', ofembed);
@@ -69,7 +69,7 @@ module.exports = {
 				const sembed = [];
 
 				special.forEach(el => {
-					sembed.push(`${el.name} - ${el.price} <:vbucks:755030644056260651>`);
+					sembed.push(`${el.name} - ${el.price} V-Bucks`);
 				});
 
 				embed1.addField('**Special**', sembed);
