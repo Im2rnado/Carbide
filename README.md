@@ -47,7 +47,8 @@
 # Support
 For any support, join [discord.gg/5pKvUpA](https://discord.gg/5pKvUpA)
 
-### This project is **__NOT__** affiliated, associated, authorized, endorsed by, or in any way official related to Epic Games Inc.
+# Disclaimer
+This project is **__NOT__** affiliated, associated, authorized, endorsed by, or in any way official related to Epic Games Inc.
 
 # Credits
 ## Contributers
