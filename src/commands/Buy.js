@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 const Auth = require('../libs/auth');
 const axios = require('axios').default;
 const { MessageEmbed } = require('discord.js');
@@ -128,7 +127,7 @@ module.exports = {
 							.setColor(Rarities[item.rarity])
 							.setTitle('**Confirm Purchase**')
 							.addField('Item', item.name, true)
-							.addField('Price', `<:vbucks:755030644056260651> ${item.price}`, true)
+							.addField('Price', `${item.price} V-Bucks`, true)
 							.addField('Creator Supported', sac)
 							.setThumbnail(item.image);
 
