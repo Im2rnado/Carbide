@@ -8,139 +8,116 @@ module.exports = {
 	name: 'avatar',
 	description: 'Returns Party Hub Avatar (Premium Only)',
 	aliases: ['kairos', 'avi'],
-	async execute(message, args) {
+	async execute(message, args, client) {
 		const tagName = message.author.id;
 
-			// DMs only
-			if (message.guild) {
-				return message.channel.send('This command only works in DMs.').then(m => m.delete({ timeout: 3900 }))
-					.catch(err => {
-						console.log(err);
+		// DMs only
+		if (message.guild) {
+			return message.channel.send('This command only works in DMs.').then(m => m.delete({ timeout: 3900 }))
+				.catch(err => {
+					console.log(err);
+				});
+		}
+
+		const h = await message.channel.send('Getting Avatar ...');
+
+		try {
+			if (fs.existsSync(path)) {
+
+				const auth = new Auth();
+
+				const token = await auth.login(null, '');
+				console.log(token);
+				const { accountId } = require('../libs/deviceAuthDetails.json');
+
+				// Get Display Name
+				let display1 = client.sessions.get(tagName);
+
+				if (!display1) {
+					client.sessions.set(tagName, token.displayName);
+				}
+
+				display1 = client.sessions.get(tagName);
+
+				const embed = new MessageEmbed().setColor('BLUE');
+
+				if (!args.length) {
+
+					const response = await axios.post(`https://channels-public-service-prod.ol.epicgames.com/api/v1/user/setting?accountId=${accountId}&settingKey=avatar&settingKey=avatarBackground`, {}, { headers: {
+						'Content-Type': 'application/json',
+						'Authorization': `Bearer ${token.access_token}`,
+					} }).catch((err) => {
+						console.error(err);
+						h.edit('❌ An Error Has Occured');
 					});
-			}
+					const kairos = response.data[0].value;
+					const kcolor = JSON.parse(response.data[1].value);
 
-			const h = await message.channel.send('Getting Avatar ...');
-
-			try {
-				if (fs.existsSync(path)) {
-
-					const auth = new Auth();
-
-					const token = await auth.login(null, '');
-					console.log(token);
-					const { accountId } = require('../libs/deviceAuthDetails.json');
-
-					// Get Kairos Color
-					let kcolor = client.sessions.get(`kcolor${tagName}`);
-
-					if (!kcolor) {
-						const response34 = await axios.post(`https://channels-public-service-prod.ol.epicgames.com/api/v1/user/setting?accountId=${accountId}&settingKey=avatar&settingKey=avatarBackground`, {}, { headers: {
-							'Content-Type': 'application/json',
-							'Authorization': `Bearer ${token.access_token}`,
-						} }).catch((err) => {
-							console.error(err);
-						});
-
-						client.sessions.set(`kairos${tagName}`, response34.data[0].value);
-						client.sessions.set(`kcolor${tagName}`, JSON.parse(response34.data[1].value));
-						client.sessions.set(tagName, token.displayName);
-					}
-
-					kcolor = client.sessions.get(`kcolor${tagName}`);
-
-					// Get Display Name
-					const display1 = client.sessions.get(tagName);
-
-					if (!display1) {
-						return h.edit('❌ Could not find your account info.');
-					}
-
-					// Get Kairos Avatar
-					const kairos = client.sessions.get(`kairos${tagName}`);
-
-					if (!kairos) {
-						return h.edit('❌ Could not find your account info.');
-					}
-
-					const embed = new MessageEmbed().setColor(`${kcolor[1]}`);
-
-					if (!args.length) {
-
-						const response = await axios.post(`https://channels-public-service-prod.ol.epicgames.com/api/v1/user/setting?accountId=${accountId}&settingKey=avatar&settingKey=avatarBackground`, {}, { headers: {
-							'Content-Type': 'application/json',
-							'Authorization': `Bearer ${token}`,
-						} }).catch((err) => {
-							console.error(err);
-							h.edit('❌ An Error Has Occured');
-						});
-						const kairos = response.data[0].value;
-						const kcolor = JSON.parse(response.data[1].value);
-
-						embed.setTitle('Your Avatar');
-						embed.setImage(`https://cdn2.unrealengine.com/Kairos/portraits/${kairos}.png`);
-						embed.setColor(`${kcolor[1]}`);
-						return h.edit('', { embed: embed });
-					}
-					else if (args[0] === 'list') {
-						const response = await axios.get(`https://channels-public-service-prod.ol.epicgames.com/api/v1/user/${accountId}/setting/avatar/available`, { headers: {
-							'Content-Type': 'application/json',
-							'Authorization': `Bearer ${token.access_token}`,
-						} }).catch((err) => {
-							console.error(err);
-							const errormessage1 = new MessageEmbed()
-								.setColor('#ffff00')
-								.setTitle('⚠️ **Uh Oh! That was unexpected!**')
-								// eslint-disable-next-line no-undef
-								.setDescription(`There seems to be an error and we're working on a fix!`)
-								.addField('Error Message: ', `\`\`\`js\n${err.response.data.errorMessage}\`\`\``)
-								.setFooter(err.response.data.errorCode);
-
-							h.edit('', errormessage1);
-						});
-						const keys = response.data;
-
-						const cosmetics = await axios.get('https://fortniteapi.io/items/list', { headers: {
-							'Content-Type': 'application/json',
-							'Authorization': '4bed3ab6-deb2685e-b3f6e8e5-16cd9f02',
-						} }).then((res) => {
-							return res.data.items.outfit;
-						}).catch((err) => {
-							console.error(err);
-							const errormessage1 = new MessageEmbed()
-								.setColor('#ffff00')
-								.setTitle('⚠️ **Uh Oh! That was unexpected!**')
-								// eslint-disable-next-line no-undef
-								.setDescription(`There seems to be an error and we're working on a fix!`)
-								.addField('Error Message: ', `\`\`\`js\n${err}\`\`\``)
-								.setFooter(err);
-
-							h.edit('', errormessage1);
-						});
-						const bed = [];
-
-						keys.forEach((el, index) => {
-							const item = el.includes('cid') ? (cosmetics.find(i => i.id.toLowerCase().startsWith(`cid_${el.split('_')[1]}`))) : el;
-							bed.push(`${index + 1}. **${!item.name ? item.id : item.name}**`);
-						});
-
-						embed.setTitle(`${keys.length} Skins`); 
-						embed.setDescription(bed);
-						return h.edit('', { embed: embed });
-					}
+					embed.setTitle('Your Avatar');
+					embed.setImage(`https://cdn2.unrealengine.com/Kairos/portraits/${kairos}.png`);
+					embed.setColor(`${kcolor[1]}`);
+					return h.edit('', { embed: embed });
 				}
-				else{
-					h.edit('❌ You are not logged in.');
+				else if (args[0] === 'list') {
+					const response = await axios.get(`https://channels-public-service-prod.ol.epicgames.com/api/v1/user/${accountId}/setting/avatar/available`, { headers: {
+						'Content-Type': 'application/json',
+						'Authorization': `Bearer ${token.access_token}`,
+					} }).catch((err) => {
+						console.error(err);
+						const errormessage1 = new MessageEmbed()
+							.setColor('#ffff00')
+							.setTitle('⚠️ **Uh Oh! That was unexpected!**')
+						// eslint-disable-next-line no-undef
+							.setDescription('There seems to be an error and we\'re working on a fix!')
+							.addField('Error Message: ', `\`\`\`js\n${err.response.data.errorMessage}\`\`\``)
+							.setFooter(err.response.data.errorCode);
+
+						h.edit('', errormessage1);
+					});
+					const keys = response.data;
+
+					const cosmetics = await axios.get('https://fortniteapi.io/items/list', { headers: {
+						'Content-Type': 'application/json',
+						'Authorization': '4bed3ab6-deb2685e-b3f6e8e5-16cd9f02',
+					} }).then((res) => {
+						return res.data.items.outfit;
+					}).catch((err) => {
+						console.error(err);
+						const errormessage1 = new MessageEmbed()
+							.setColor('#ffff00')
+							.setTitle('⚠️ **Uh Oh! That was unexpected!**')
+						// eslint-disable-next-line no-undef
+							.setDescription('There seems to be an error and we\'re working on a fix!')
+							.addField('Error Message: ', `\`\`\`js\n${err}\`\`\``)
+							.setFooter(err);
+
+						h.edit('', errormessage1);
+					});
+					const bed = [];
+
+					keys.forEach((el, index) => {
+						const item = el.includes('cid') ? (cosmetics.find(i => i.id.toLowerCase().startsWith(`cid_${el.split('_')[1]}`))) : el;
+						bed.push(`${index + 1}. **${!item.name ? item.id : item.name}**`);
+					});
+
+					embed.setTitle(`${keys.length} Skins`);
+					embed.setDescription(bed);
+					return h.edit('', { embed: embed });
 				}
 			}
-			catch(err) {
-				console.error(err);
-				const errormessage1 = new MessageEmbed()
-					.setColor('#ffff00')
-					.setTitle('⚠️ **Uh Oh! That was unexpected!**')
-					.setDescription(`There seems to be an error and we're working on a fix!`)
-					.addField('Error Message: ', `\`\`\`js\n${err}\`\`\``);
-
-				h.edit('', errormessage1);
+			else{
+				h.edit('❌ You are not logged in.');
 			}
+		}
+		catch(err) {
+			console.error(err);
+			const errormessage1 = new MessageEmbed()
+				.setColor('#ffff00')
+				.setTitle('⚠️ **Uh Oh! That was unexpected!**')
+				.setDescription('There seems to be an error and we\'re working on a fix!')
+				.addField('Error Message: ', `\`\`\`js\n${err}\`\`\``);
+
+			h.edit('', errormessage1);
+		}
 	},
 };
