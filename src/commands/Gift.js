@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-undef */
 const Auth = require('../libs/auth');
 const axios = require('axios').default;
 const { MessageEmbed } = require('discord.js');
@@ -135,7 +133,7 @@ module.exports = {
 								.setTitle('**Confirm Gift**')
 								.setColor(Rarities[item.rarity])
 								.addField('Item', item.name, true)
-								.addField('Price', `<:vbucks:755030644056260651> ${item.price}`, true)
+								.addField('Price', `${item.price} V-Bucks`, true)
 								.addField('Receiver', bItem, true)
 								.addField('Creator Supported', sac)
 								.setThumbnail(item.image);
@@ -170,13 +168,6 @@ module.exports = {
 												.addField('Error Message: ', `\`\`\`js\n${err.response.data.errorMessage}\`\`\``);
 
 											f.edit('', errormessage1);
-											const errormessage2 = new MessageEmbed()
-												.setColor('#ffff00')
-												.setTitle(`**${message.author.tag}** \`(${message.author.id})\` encountered an error!`)
-												.setDescription(`Command Used: **${message.content}**`)
-												.addField('Error Message: ', `\`\`\`js\n${err.response.data.errorMessage}\`\`\``);
-
-											client.channels.cache.get('743242297260507166').send(errormessage2);
 										});
 
 										const accId = reponse7.data.id;
@@ -208,18 +199,10 @@ module.exports = {
 											const errormessage1 = new MessageEmbed()
 												.setColor('#ffff00')
 												.setTitle('⚠️ **Gift Failed!**')
-												.setDescription('It looks like you can\'t gift this item! If you think its a problem on our side.')
+												.setDescription('It looks like you can\'t gift this item! It may be a problem on our side.')
 												.addField('Error Message: ', `\`\`\`js\n${err.response.data.errorMessage}\`\`\``);
 
 											f.edit('', errormessage1);
-
-											const errormessage2 = new MessageEmbed()
-												.setColor('#ffff00')
-												.setTitle(`**${message.author.tag}** \`(${message.author.id})\` encountered an error!`)
-												.setDescription(`Command Used: **${message.content}**`)
-												.addField('Error Message: ', `\`\`\`js\n${err.response.data.errorMessage}\`\`\``);
-
-											client.channels.cache.get('743242297260507166').send(errormessage2);
 										});
 									}
 									if (reaction.emoji.name === '❌') {
