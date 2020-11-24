@@ -102,7 +102,7 @@ class Auth {
 				return res.data;
 			});
 		// console.log(`Your fortnite token is ${fortniteToken.access_token}`);
-		return fortniteToken.access_token;
+		return fortniteToken;
 	}
 	/**
    * Get OAuth Token for Fortnite Game access
