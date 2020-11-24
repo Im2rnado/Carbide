@@ -16,7 +16,6 @@
 - Show your Vbucks
 - Claim your Daily STW Reward
 - Show your Locker
-- Change Vbucks Platform
 - Get friends list
 - Add a friend
 - Remove a friend
