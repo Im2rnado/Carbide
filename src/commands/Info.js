@@ -24,7 +24,7 @@ module.exports = {
 				});
 		}
 
-		const h = await message.channel.send('Getting account info <a:loading:754479771089371318>');
+		const h = await message.channel.send('Getting account info ...');
 
 		try {
 			if (fs.existsSync(path)) {
@@ -77,7 +77,6 @@ module.exports = {
 					const errormessage1 = new MessageEmbed()
 						.setColor('#ffff00')
 						.setTitle('⚠️ **Uh Oh! That was unexpected!**')
-						// eslint-disable-next-line no-undef
 						.setDescription('There seems to be an error and we\'re working on a fix!')
 						.addField('Error Message: ', `\`\`\`js\n${err.response.data.errorMessage}\`\`\``)
 						.setFooter(err.response.data.errorCode);
@@ -129,7 +128,6 @@ module.exports = {
 			const errormessage1 = new MessageEmbed()
 				.setColor('#ffff00')
 				.setTitle('⚠️ **Uh Oh! That was unexpected!**')
-			// eslint-disable-next-line no-undef
 				.setDescription('There seems to be an error and we\'re working on a fix!')
 				.addField('Error Message: ', `\`\`\`js\n${err}\`\`\``);
 
