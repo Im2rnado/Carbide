@@ -1,4 +1,4 @@
-const { createCanvas, loadImage, registerFont } = require('canvas');
+const { createCanvas, loadImage } = require('canvas');
 const Auth = require('../libs/auth');
 const axios = require('axios').default;
 const { MessageEmbed, MessageAttachment } = require('discord.js');
@@ -23,7 +23,7 @@ module.exports = {
 				});
 		}
 
-		const h = await message.channel.send('Fetching Locker <a:loading:754479771089371318>');
+		const h = await message.channel.send('Fetching Locker ...');
 		const bed = [];
 		const parseds = [];
 
