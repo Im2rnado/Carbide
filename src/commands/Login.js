@@ -115,7 +115,7 @@ module.exports = {
 											return res.data;
 										});
 
-                                                                                 const deviceAuthDetails = await axios
+									const deviceAuthDetails = await axios
 										.post(
 											`${Endpoints.DEVICE_AUTH}/${iosToken.account_id}/deviceAuth`,
 											{},
@@ -124,13 +124,13 @@ module.exports = {
 										.then((res) => {
 											return res.data;
 										});
-                                                                        const devvvv = {
-			accountId: deviceAuthDetails.accountId,
-			deviceId: deviceAuthDetails.deviceId,
-			secret: deviceAuthDetails.secret,
-		};
+									const devvvv = {
+										accountId: deviceAuthDetails.accountId,
+										deviceId: deviceAuthDetails.deviceId,
+										secret: deviceAuthDetails.secret,
+									};
 
-			                                                await fs2.writeFile(path, JSON.stringify(devvvv));
+									await fs2.writeFile(path, JSON.stringify(devvvv));
 
 									const accountId = token.account_id;
 
@@ -143,7 +143,7 @@ module.exports = {
 											.setColor('#ffff00')
 											.setTitle('⚠️ **Uh Oh! That was unexpected!**')
 											// eslint-disable-next-line no-undef
-											.setDescription(`There seems to be an error and we're working on a fix!`)
+											.setDescription('There seems to be an error and we\'re working on a fix!')
 											.addField('Error Message: ', `\`\`\`js\n${err.response.data.errorMessage}\`\`\``)
 											.setFooter(err.response.data.errorCode);
 
@@ -215,7 +215,7 @@ module.exports = {
 				.setColor('#ffff00')
 				.setTitle('⚠️ **Uh Oh! That was unexpected!**')
 			// eslint-disable-next-line no-undef
-				.setDescription(`There seems to be an error and we're working on a fix!`)
+				.setDescription('There seems to be an error and we\'re working on a fix!')
 				.addField('Error Message: ', `\`\`\`js\n${err}\`\`\``);
 
 			message.channel.send(errormessage1);
