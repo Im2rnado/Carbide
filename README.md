@@ -44,9 +44,10 @@
 11. Open `run.bat`, it should say `Online!` (DON'T CLOSE THIS WHILE USING THE BOT!)
 12. Use the bot!
 
-
 # Support
-For any support, join [discord.gg/5pKvUpA](https://discord.gg/5pKvUpA).
+For any support, join [discord.gg/5pKvUpA](https://discord.gg/5pKvUpA)
+
+### This project is **__NOT__** affiliated, associated, authorized, endorsed by, or in any way official related to Epic Games Inc.
 
 # Credits
 ## Contributers
