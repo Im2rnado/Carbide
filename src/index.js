@@ -45,6 +45,7 @@ client.on('message', async message => {
 			.setFooter('Need Help? Use +help');
 		return message.channel.send(embed1010);
 	}
+	else if (!command) return;
 	try {
 		command.execute(message, args, client);
 	}
