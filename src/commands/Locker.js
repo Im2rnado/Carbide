@@ -144,9 +144,6 @@ module.exports = {
 };
 
 function creatLocker(content) {
-
-	registerFont('./src/.fonts/BurbankBigCondensed-Black.otf', { family: 'Burbank Big Condensed Black' });
-
 	const layers = Math.ceil((content.length) / 7);
 	const imageY = layers * 160 + 115;
 
