@@ -4,7 +4,6 @@ const { MessageEmbed } = require('discord.js');
 module.exports = {
 	name: 'help',
 	description: 'List all of my commands or info about a specific command.',
-	category: 'General',
 	execute(message, args, client) {
 		const { commands } = message.client;
 
