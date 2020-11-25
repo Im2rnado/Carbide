@@ -96,9 +96,9 @@ module.exports = {
 
 					// Skins
 					h.edit(`Rendering \`${parseds.length}\` skins <a:loading:754479771089371318>`);
-					const img = await creatLocker(parseds);
-					message.channel.send(`**${parseds.length} Skins**`, img);
-					h.delete();
+					await creatLocker(parseds);
+					const attachment = new Discord.MessageAttachment('./src/final/locker.png');
+					message.channel.send(`**${parseds.length} Skins**`, attachment);
 				}
 				else if (args[0] === 'list') {
 					h.edit('Loading Skins <a:loading:754479771089371318>');
@@ -176,8 +176,11 @@ function creatLocker(content) {
 			}
 
 		}
-		const t = new MessageAttachment(canvas.toBuffer(), 'locker.png');
-		resolve(t);
+		const end = fs.createWriteStream('./src/final/locker.png');
+			const stream = canvas.createPNGStream().pipe(end);
+			stream.on('finish', () => {
+				resolve('./src/final/locker.png');
+			});
 
 	}).catch((err) => {
 		console.error(err);
