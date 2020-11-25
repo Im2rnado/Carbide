@@ -1,3 +1,1 @@
-@echo off
-
-npm install
+start npm install
