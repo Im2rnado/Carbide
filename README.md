@@ -4,7 +4,7 @@
 
 # About
 
-**Carbide** is a **Discord Bot** made by [Tornado](https://twitter.com/im2rnadoo) that let's you login to your Fortnite account and access 45+ commands!
+**Carbide** is a **Discord Bot** made by [Tornado](https://twitter.com/im2rnadoo) that let's you login to your Fortnite account and access 10+ commands!
 </div>
 
 # Features
@@ -13,9 +13,11 @@
 - Gift from the item shop
 - Show your Account Name
 - Show your Account ID
-- Show your Vbucks
+- Show your V-Bucks
 - Claim your Daily STW Reward
 - Show your Locker
+- Change V-Bucks Platform
+- Change SAC Code
 - Get friends list
 - Add a friend
 - Remove a friend
