@@ -84,12 +84,6 @@ module.exports = {
 
 						breakdown.push(`**${Number(item.quantity).toLocaleString()}** x **${item.attributes.platform || 'Shared'} ${item.templateId.split(':')[1].replace('Mtx', '')}**`);
 					}
-					else {
-						embed.setTitle('0 Vbucks');
-						embed.setAuthor(`${display1}`, `https://cdn2.unrealengine.com/Kairos/portraits/${kairos}.png`);
-
-						return h.edit('', embed);
-					}
 				}
 
 				embed.setTitle(`${mtxQantitys.fullCurrency} Vbucks`);
@@ -103,14 +97,13 @@ module.exports = {
 			}
 		}
 		catch (err) {
-			console.log(err);
-			const errormessage1 = new MessageEmbed()
-				.setColor('#ffff00')
-				.setTitle('⚠️ **Uh Oh! That was unexpected!**')
-				.setDescription('There seems to be an error and we\'re working on a fix!')
-				.addField('Error Message: ', `\`\`\`js\n${err}\`\`\``);
+				console.error(err);
+				const errormessage1 = new MessageEmbed()
+					.setColor('BLUE')
+					.setTitle('No V-Bucks')
+					.setDescription('Looks like you dont have any vbucks :(\nGo grind some challenges and come back!');
 
-			return h.edit('', errormessage1);
-		}
+				h.edit('', errormessage1);
+			}
 	},
 };
