@@ -1,4 +1,1 @@
-  
-@echo off
-
-npm start
+start npm start
