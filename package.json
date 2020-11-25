@@ -11,7 +11,7 @@
     "start": "node ./src/index.js"
   },
   "author": "im2rnado",
-  "license": "GNU",
+  "license": "MIT",
   "dependencies": {
     "axios": "^0.19.2",
     "axios-cookiejar-support": "^1.0.0",
