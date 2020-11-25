@@ -4,7 +4,7 @@
 
 # About
 
-**Carbide** is a **Discord Bot** made by [Tornado](https://twitter.com/im2rnadoo) that let's you login to your Fortnite account and access 10+ commands!
+**Carbide** is a **Discord Bot** made by [Tornado](https://twitter.com/im2rnadoo) that let's you login to your Fortnite account and access lots of commands! The main bot is at [Carbide](https://github.com/im2rnado/Carbide-Help) and this is just the open-source version of it (less features)
 </div>
 
 # Features
