@@ -97,7 +97,7 @@ module.exports = {
 					// Skins
 					h.edit(`Rendering \`${parseds.length}\` skins <a:loading:754479771089371318>`);
 					await creatLocker(parseds);
-					const attachment = new Discord.MessageAttachment('./src/final/locker.png');
+					const attachment = new MessageAttachment('./src/final/locker.png');
 					message.channel.send(`**${parseds.length} Skins**`, attachment);
 				}
 				else if (args[0] === 'list') {
