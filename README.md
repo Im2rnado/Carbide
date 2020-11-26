@@ -28,7 +28,7 @@
 
 # Installation 
 
-1. Install the latest version of **[Node.JS](https://nodejs.org/en/download/current/)**
+1. Install the stable version of **[Node.JS](https://nodejs.org/en/download/)**
 2. Download the source code.
 3. Extract the zip.
 4. Open `install.bat` and wait for it to install. (Only required on the first run!)
