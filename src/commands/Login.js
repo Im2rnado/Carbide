@@ -33,6 +33,16 @@ module.exports = {
 			else{
 				console.log(' ');
 				if (!args.length) {
+                                        const userAgentres = await axios.get('https://fortnite-public-service-prod11.ol.epicgames.com/fortnite/api/version', {
+						headers: {
+							'Content-Type': 'application/json',
+						},
+					}).then((res) => {
+						return res.data;
+					}).catch((err) => {
+						console.error(err.response.data.errorMessage);
+					});
+                                        const userAgent = client.sessions.set('USERAGENT', `++Fortnite+${userAgentres.branch}-CL-${userAgentres.cln} Windows/10.0.17134.1.768.64bit`);
 					const k = await message.channel.send('Generating Device Code ...');
 					console.log('[AUTH]', 'Requesting Access Token');
 					const access_token = await axios.post('https://account-public-service-prod03.ol.epicgames.com/account/api/oauth/token', stringify({ token_type: 'eg1', grant_type: 'client_credentials' }), { headers: {
