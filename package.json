@@ -3,10 +3,6 @@
   "version": "1.0.0",
   "description": "Discord Bot that interacts with your Fortnite account",
   "main": "./src/index.js",
-  "engines": {
-    "node": "14.7",
-    "npm": "6.14.7"
-  },
   "scripts": {
     "start": "node ./src/index.js"
   },
