@@ -15,7 +15,7 @@ const path = './src/libs/deviceAuthDetails.json';
 module.exports = {
 	name: 'login',
 	aliases: ['signin', 'i'],
-	description: 'Logs in to your Fortnite Account (Premium Only)',
+	description: 'Logs in to your Fortnite Account',
 	async execute(message, args, client) {
 		const tagName = message.author.id;
 		// DMs only
