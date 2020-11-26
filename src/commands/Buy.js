@@ -24,7 +24,7 @@ const Rarities = {
 
 module.exports = {
 	name: 'buy',
-	description: 'Buys from Item Shop (Premium Only)',
+	description: 'Buys from Item Shop',
 	aliases: ['b'],
 	async execute(message, args, client) {
 		const tagName = message.author.id;
