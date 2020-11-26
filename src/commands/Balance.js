@@ -38,6 +38,7 @@ module.exports = {
 				if (!kcolor) {
 					const response34 = await axios.post(`https://channels-public-service-prod.ol.epicgames.com/api/v1/user/setting?accountId=${accountId}&settingKey=avatar&settingKey=avatarBackground`, {}, { headers: {
 						'Content-Type': 'application/json',
+                                                'User-Agent': USER_AGENT,
 						'Authorization': `Bearer ${token.access_token}`,
 					} }).catch((err) => {
 						console.error(err);
