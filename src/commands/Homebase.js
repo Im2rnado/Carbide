@@ -7,7 +7,7 @@ const path = './src/libs/deviceAuthDetails.json';
 
 module.exports = {
 	name: 'homebase',
-	description: 'Changes your STW Homebase Name (Premium Only)',
+	description: 'Changes your STW Homebase Name',
 	aliases: ['homebasename'],
 	async execute(message, args, client) {
 		const tagName = message.author.id;
