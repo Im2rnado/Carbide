@@ -7,7 +7,7 @@ const path = './src/libs/deviceAuthDetails.json';
 
 module.exports = {
 	name: 'balance',
-	description: 'Returns Vbucks Balance (Premium Only)',
+	description: 'Returns Vbucks Balance',
 	aliases: ['bal', 'vbucks'],
 	async execute(message, args, client) {
 		const tagName = message.author.id;
