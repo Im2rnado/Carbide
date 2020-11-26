@@ -8,7 +8,7 @@ const path = './src/libs/deviceAuthDetails.json';
 
 module.exports = {
 	name: 'locker',
-	description: 'Returns Total Skins (Premium Only)',
+	description: 'Returns Total Skins',
 	async execute(message, args, client) {
 		const tagName = message.author.id;
 
