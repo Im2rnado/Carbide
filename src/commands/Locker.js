@@ -49,6 +49,7 @@ module.exports = {
 
 				const response = await axios.post(`${Endpoints.PUBLIC_BASE_URL}/game/v2/profile/${accountId}/client/QueryProfile?profileId=athena`, {}, { headers: {
 					'Content-Type': 'application/json',
+                                        'User-Agent': USER_AGENT,
 					'Authorization': `Bearer ${token.access_token}`,
 				} }).catch((err) => {
 					console.error(err);
