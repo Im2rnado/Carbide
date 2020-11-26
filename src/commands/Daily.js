@@ -4,6 +4,7 @@ const { MessageEmbed } = require('discord.js');
 const fs = require('fs');
 const { PUBLIC_BASE_URL } = require('../utils/endpoints');
 const path = './src/libs/deviceAuthDetails.json';
+const USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36';
 
 module.exports = {
 	name: 'daily',
@@ -37,6 +38,7 @@ module.exports = {
 				if (!kcolor) {
 					const response34 = await axios.post(`https://channels-public-service-prod.ol.epicgames.com/api/v1/user/setting?accountId=${accountId}&settingKey=avatar&settingKey=avatarBackground`, {}, { headers: {
 						'Content-Type': 'application/json',
+                                                'User-Agent': USER_AGENT,
 						'Authorization': `Bearer ${token.access_token}`,
 					} }).catch((err) => {
 						console.error(err);
@@ -67,6 +69,7 @@ module.exports = {
 
 				const response = await axios.post(`${PUBLIC_BASE_URL}/game/v2/profile/${accountId}/client/ClaimLoginReward?profileId=campaign&rvn=-1`, {}, { headers: {
 					'Content-Type': 'application/json',
+                                        'User-Agent': USER_AGENT,
 					'Authorization': `Bearer ${token.access_token}`,
 				} }).catch((err) => {
 					console.error(err);
