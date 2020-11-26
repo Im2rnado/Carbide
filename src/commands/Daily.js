@@ -7,7 +7,7 @@ const path = './src/libs/deviceAuthDetails.json';
 
 module.exports = {
 	name: 'daily',
-	description: 'Claims Daily STW Reward (Premium Only)',
+	description: 'Claims Daily STW Reward',
 	aliases: ['claim', 'stw'],
 	async execute(message, args, client) {
 		const tagName = message.author.id;
