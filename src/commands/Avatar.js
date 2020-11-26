@@ -6,7 +6,7 @@ const path = './src/libs/deviceAuthDetails.json';
 
 module.exports = {
 	name: 'avatar',
-	description: 'Returns Party Hub Avatar (Premium Only)',
+	description: 'Returns Party Hub Avatar',
 	aliases: ['kairos', 'avi'],
 	async execute(message, args, client) {
 		const tagName = message.author.id;
