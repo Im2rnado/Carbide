@@ -7,7 +7,7 @@ const path = './src/libs/deviceAuthDetails.json';
 module.exports = {
 	name: 'logout',
 	aliases: ['signout', 'o'],
-	description: 'Logs out of your Fortnite Account (Premium Only)',
+	description: 'Logs out of your Fortnite Account',
 	async execute(message) {
 		// DMs only
 		if (message.guild) {
