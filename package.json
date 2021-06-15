@@ -9,7 +9,7 @@
   "author": "im2rnado",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "axios-cookiejar-support": "^1.0.0",
     "canvas": "^2.6.1",
     "cron-scheduler": "^1.2.0",
