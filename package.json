@@ -24,6 +24,6 @@
     "tough-cookie": "^4.0.0"
   },
   "devDependencies": {
-    "eslint": "^7.3.0"
+    "eslint": "^9.39.1"
   }
 }
